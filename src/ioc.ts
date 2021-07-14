@@ -22,6 +22,7 @@ import { OvaleDemonHunterSoulFragmentsClass } from "./states/DemonHunterSoulFrag
 import { OvaleSigilClass } from "./states/DemonHunterSigils";
 import { OvaleEnemiesClass } from "./states/Enemies";
 import { OvaleEquipmentClass } from "./states/Equipment";
+import { Example } from "./states/example";
 import { OvaleFrameModuleClass } from "./ui/Frame";
 import { OvaleFutureClass } from "./states/Future";
 import { Guids } from "./engine/guid";
@@ -82,6 +83,7 @@ export class IoC {
     public demonHunterSoulFragments: OvaleDemonHunterSoulFragmentsClass;
     public enemies: OvaleEnemiesClass;
     public equipment: OvaleEquipmentClass;
+    public example: Example;
     public frame: OvaleFrameModuleClass;
     public future: OvaleFutureClass;
     public guid: Guids;
@@ -126,6 +128,7 @@ export class IoC {
         this.lastSpell = new LastSpell();
         this.baseState = new BaseState();
         this.condition = new OvaleConditionClass(this.baseState);
+        this.example = new Example(this.ovale, this.debug);
         const controls = new Controls();
         const runner = new Runner(
             this.profiler,
